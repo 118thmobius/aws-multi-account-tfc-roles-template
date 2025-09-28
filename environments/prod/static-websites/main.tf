@@ -1,0 +1,37 @@
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 5.0"
+    }
+  }
+}
+
+module "tfc_oidc" {
+  source = "../../../modules/tfc-oidc"
+
+  project_name = var.project_name
+  environment  = var.environment
+}
+
+module "tfc_roles" {
+  source = "../../../modules/tfc-roles"
+
+  project_name      = var.project_name
+  environment       = var.environment
+  oidc_provider_arn = module.tfc_oidc.oidc_provider_arn
+  tfc_organization  = var.tfc_organization
+  tfc_project       = var.tfc_project
+
+  plan_policy_arns = var.plan_policy_arns
+  plan_custom_policies = {
+    for filename in fileset("${path.module}/policies/plan", "*.json") :
+    trimsuffix(filename, ".json") => file("${path.module}/policies/plan/${filename}")
+  }
+
+  apply_policy_arns = var.apply_policy_arns
+  apply_custom_policies = {
+    for filename in fileset("${path.module}/policies/apply", "*.json") :
+    trimsuffix(filename, ".json") => file("${path.module}/policies/apply/${filename}")
+  }
+}
