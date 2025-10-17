@@ -13,7 +13,7 @@ aws-multi-account-tfc-roles/
 │   └── tfc-roles/              # IAMロールモジュール
 ├── environments/
 │   ├── dev/                    # 開発環境
-│   │   └── static-websites/
+│   │   └── sample/
 │   │       ├── policies/
 │   │       │   ├── plan/       # Plan用カスタムポリシー
 │   │       │   └── apply/      # Apply用カスタムポリシー
@@ -22,7 +22,7 @@ aws-multi-account-tfc-roles/
 │   │       ├── outputs.tf
 │   │       └── terraform.tfvars.example
 │   └── prod/                   # 本番環境
-│       └── static-websites/
+│       └── sample/
 └── README.md
 ```
 
@@ -52,13 +52,13 @@ aws-multi-account-tfc-roles/
 
 ```bash
 # 開発環境
-cd environments/dev/static-websites
+cd environments/dev/sample
 cp terraform.tfvars.example terraform.tfvars
 # terraform.tfvarsを編集
 vim terraform.tfvars
 
 # 本番環境
-cd environments/prod/static-websites
+cd environments/prod/sample
 cp terraform.tfvars.example terraform.tfvars
 # terraform.tfvarsを編集
 vim terraform.tfvars
@@ -129,8 +129,8 @@ JSONファイルで管理（自動読み込み）：
 
 1. 環境ディレクトリをコピー：
 ```bash
-cp -r environments/dev/static-websites environments/dev/new-project
-cp -r environments/prod/static-websites environments/prod/new-project
+cp -r environments/dev/sample environments/dev/new-project
+cp -r environments/prod/sample environments/prod/new-project
 ```
 
 2. 設定ファイルを更新：
@@ -167,8 +167,8 @@ tfc-oidc → tfc-roles
 ### terraform.tfvars
 ```hcl
 tfc_organization = "your-tfc-organization"
-tfc_project      = "static-websites"
-project_name     = "static-websites"
+tfc_project      = "sample-project"
+project_name     = "sample-project"
 environment      = "dev"
 
 plan_policy_arns = [

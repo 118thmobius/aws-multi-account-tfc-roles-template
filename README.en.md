@@ -13,7 +13,7 @@ aws-multi-account-tfc-roles/
 │   └── tfc-roles/              # IAM Roles Module
 ├── environments/
 │   ├── dev/                    # Development Environment
-│   │   └── static-websites/
+│   │   └── sample/
 │   │       ├── policies/
 │   │       │   ├── plan/       # Custom Policies for Plan
 │   │       │   └── apply/      # Custom Policies for Apply
@@ -22,7 +22,7 @@ aws-multi-account-tfc-roles/
 │   │       ├── outputs.tf
 │   │       └── terraform.tfvars.example
 │   └── prod/                   # Production Environment
-│       └── static-websites/
+│       └── sample/
 └── README.md
 ```
 
@@ -52,13 +52,13 @@ The following resources are created for each environment (dev/prod):
 
 ```bash
 # Development environment
-cd environments/dev/static-websites
+cd environments/dev/sample
 cp terraform.tfvars.example terraform.tfvars
 # Edit terraform.tfvars
 vim terraform.tfvars
 
 # Production environment
-cd environments/prod/static-websites
+cd environments/prod/sample
 cp terraform.tfvars.example terraform.tfvars
 # Edit terraform.tfvars
 vim terraform.tfvars
@@ -129,8 +129,8 @@ Example: `policies/plan/s3-read-only.json`
 
 1. Copy environment directory:
 ```bash
-cp -r environments/dev/static-websites environments/dev/new-project
-cp -r environments/prod/static-websites environments/prod/new-project
+cp -r environments/dev/sample environments/dev/new-project
+cp -r environments/prod/sample environments/prod/new-project
 ```
 
 2. Update configuration files:
@@ -167,8 +167,8 @@ tfc-oidc → tfc-roles
 ### terraform.tfvars
 ```hcl
 tfc_organization = "your-tfc-organization"
-tfc_project      = "static-websites"
-project_name     = "static-websites"
+tfc_project      = "sample-project"
+project_name     = "sample-project"
 environment      = "dev"
 
 plan_policy_arns = [

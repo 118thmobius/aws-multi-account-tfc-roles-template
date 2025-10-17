@@ -1,48 +1,48 @@
 variable "project_name" {
-  description = "プロジェクト名"
+  description = "Project name"
   type        = string
 }
 
 variable "environment" {
-  description = "環境名（dev/prod）"
+  description = "Environment name (dev/prod)"
   type        = string
 }
 
 variable "oidc_provider_arn" {
-  description = "OIDCプロバイダARN"
+  description = "OIDC provider ARN"
   type        = string
 }
 
 variable "tfc_organization" {
-  description = "Terraform Cloud組織名"
+  description = "Terraform Cloud organization name"
   type        = string
 }
 
 variable "tfc_project" {
-  description = "Terraform Cloudプロジェクト名"
+  description = "Terraform Cloud project name"
   type        = string
 }
 
 variable "plan_policy_arns" {
-  description = "Plan用AWSマネージドポリシーARN配列"
+  description = "AWS managed policy ARN list for plan role"
   type        = list(string)
   default     = []
 }
 
 variable "plan_custom_policies" {
-  description = "Plan用カスタムポリシーマップ"
+  description = "Custom policy map for plan role"
   type        = map(string)
   default     = {}
 }
 
 variable "apply_policy_arns" {
-  description = "Apply用AWSマネージドポリシーARN配列"
+  description = "AWS managed policy ARN list for apply role"
   type        = list(string)
   default     = []
 }
 
 variable "apply_custom_policies" {
-  description = "Apply用カスタムポリシーマップ"
+  description = "Custom policy map for apply role"
   type        = map(string)
   default     = {}
 }

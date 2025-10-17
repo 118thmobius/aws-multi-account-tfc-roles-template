@@ -1,33 +1,33 @@
 variable "project_name" {
-  description = "プロジェクト名"
+  description = "Project name"
   type        = string
   default     = "static-websites"
 }
 
 variable "environment" {
-  description = "環境名"
+  description = "Environment name"
   type        = string
   default     = "prod"
 }
 
 variable "tfc_organization" {
-  description = "Terraform Cloud組織名"
+  description = "Terraform Cloud organization name"
   type        = string
 }
 
 variable "tfc_project" {
-  description = "Terraform Cloudプロジェクト名"
+  description = "Terraform Cloud project name"
   type        = string
 }
 
 variable "plan_policy_arns" {
-  description = "Plan用AWSマネージドポリシーARN配列"
+  description = "AWS managed policy ARN list for plan role"
   type        = list(string)
   default     = ["arn:aws:iam::aws:policy/ReadOnlyAccess"]
 }
 
 variable "apply_policy_arns" {
-  description = "Apply用AWSマネージドポリシーARN配列"
+  description = "AWS managed policy ARN list for apply role"
   type        = list(string)
   default     = []
 }

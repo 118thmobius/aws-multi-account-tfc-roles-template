@@ -1,9 +1,9 @@
 variable "project_name" {
-  description = "プロジェクト名"
+  description = "Project name"
   type        = string
 }
 
 variable "environment" {
-  description = "環境名（dev/prod）"
+  description = "Environment name (dev/prod)"
   type        = string
 }
