@@ -2,9 +2,14 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.0"
+      version = "~> 6.0"
     }
   }
+}
+
+provider "aws" {
+  region = var.target_region
+  profile = var.target_profile
 }
 
 module "tfc_oidc" {

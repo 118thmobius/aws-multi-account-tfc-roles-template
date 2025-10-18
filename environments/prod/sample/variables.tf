@@ -1,7 +1,7 @@
 variable "project_name" {
   description = "Project name"
   type        = string
-  default     = "static-websites"
+  default     = "sample-project"
 }
 
 variable "environment" {
