@@ -12,21 +12,13 @@ provider "aws" {
   profile = var.target_profile
 }
 
-module "tfc_oidc" {
-  source = "../../../modules/tfc-oidc"
+module "tfc_baseline" {
+  source = "../../../modules/tfc-baseline"
 
-  project_name = var.project_name
-  environment  = var.environment
-}
-
-module "tfc_roles" {
-  source = "../../../modules/tfc-roles"
-
-  project_name      = var.project_name
-  environment       = var.environment
-  oidc_provider_arn = module.tfc_oidc.oidc_provider_arn
-  tfc_organization  = var.tfc_organization
-  tfc_project       = var.tfc_project
+  project_name     = var.project_name
+  environment      = var.environment
+  tfc_organization = var.tfc_organization
+  tfc_project      = var.tfc_project
 
   plan_policy_arns = var.plan_policy_arns
   plan_custom_policies = {

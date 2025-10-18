@@ -1,17 +1,26 @@
-# Terraform Cloud設定
+# Terraform Cloud Configuration
 tfc_organization = "your-tfc-organization"
-tfc_project      = "static-websites"
+tfc_project      = "sample-project"
 
-# プロジェクト設定
-project_name = "static-websites"
+# Project Configuration
+project_name = "sample-project"
 environment  = "dev"
 
-# Plan用ポリシー（読み取り専用）
+# AWS Configuration
+target_profile = "default"
+target_region  = "us-east-1"
+
+# Backend Configuration
+backend_bucket  = "your-terraform-state-bucket"
+backend_profile = "default"
+backend_region  = "us-east-1"
+
+# Plan Policies (Read-only)
 plan_policy_arns = [
   "arn:aws:iam::aws:policy/ReadOnlyAccess"
 ]
 
-# Apply用ポリシー（S3とCloudFrontの管理権限）
+# Apply Policies (Modification permissions)
 apply_policy_arns = [
   "arn:aws:iam::aws:policy/AmazonS3FullAccess",
   "arn:aws:iam::aws:policy/CloudFrontFullAccess"
