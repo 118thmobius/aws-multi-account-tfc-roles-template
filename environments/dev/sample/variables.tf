@@ -22,23 +22,6 @@ variable "target_region" {
   default     = "us-east-1"
 }
 
-variable "backend_bucket" {
-  description = "Backend bucket name"
-  type        = string
-}
-
-variable "backend_profile" {
-  description = "Backend AWS profile"
-  type        = string
-  default     = "default"
-}
-
-variable "backend_region" {
-  description = "Backend AWS region"
-  type        = string
-  default     = "us-east-1"
-}
-
 variable "tfc_organization" {
   description = "Terraform Cloud organization name"
   type        = string

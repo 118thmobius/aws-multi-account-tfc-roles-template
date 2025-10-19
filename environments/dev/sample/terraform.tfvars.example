@@ -1,6 +1,6 @@
 # Terraform Cloud Configuration
 tfc_organization = "your-tfc-organization"
-tfc_project      = "sample-project"
+tfc_project      = "sample-project-dev"
 
 # Project Configuration
 project_name = "sample-project"
@@ -9,11 +9,6 @@ environment  = "dev"
 # AWS Configuration
 target_profile = "default"
 target_region  = "us-east-1"
-
-# Backend Configuration
-backend_bucket  = "your-terraform-state-bucket"
-backend_profile = "default"
-backend_region  = "us-east-1"
 
 # Plan Policies (Read-only)
 plan_policy_arns = [

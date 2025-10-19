@@ -1,8 +1,8 @@
 terraform {
   backend "s3" {
-    bucket  = var.backend_bucket
-    key     = var.project_name
-    region  = var.backend_region
-    profile = var.backend_profile
+    # Backend configuration will be provided via:
+    # - terraform init -backend-config arguments
+    # - ../backend.hcl file
+    # - environment variables
   }
 }
