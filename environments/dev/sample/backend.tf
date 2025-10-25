@@ -4,5 +4,6 @@ terraform {
     # - terraform init -backend-config arguments
     # - ../backend.hcl file
     # - environment variables
+    key = "tfc-role/"+var.project_name+".tfstate"
   }
 }
