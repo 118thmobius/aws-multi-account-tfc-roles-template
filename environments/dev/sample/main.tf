@@ -19,6 +19,7 @@ module "tfc_baseline" {
   environment      = var.environment
   tfc_organization = var.tfc_organization
   tfc_project      = var.tfc_project
+  tfc_workspace = var.tfc_workspace
 
   plan_policy_arns = var.plan_policy_arns
   plan_custom_policies = {

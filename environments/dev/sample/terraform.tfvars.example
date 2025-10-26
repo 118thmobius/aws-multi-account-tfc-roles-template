@@ -1,6 +1,7 @@
 # Terraform Cloud Configuration
 tfc_organization = "your-tfc-organization"
-tfc_project      = "sample-project-dev"
+tfc_project      = "sample-project"
+tfc_workspace    = "sample-project-dev"
 
 # Project Configuration
 project_name = "sample-project"

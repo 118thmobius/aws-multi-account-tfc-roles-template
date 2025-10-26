@@ -15,7 +15,7 @@ resource "aws_iam_role" "tfc_plan_role" {
             "app.terraform.io:aud" = "aws.workload.identity"
           }
           StringLike = {
-            "app.terraform.io:sub" = "organization:${var.tfc_organization}:project:${var.tfc_project}:workspace:*:run_phase:plan"
+            "app.terraform.io:sub" = "organization:${var.tfc_organization}:project:${var.tfc_project}:workspace:${var.tfc_workspace}:run_phase:plan"
           }
         }
       }
@@ -46,7 +46,7 @@ resource "aws_iam_role" "tfc_apply_role" {
             "app.terraform.io:aud" = "aws.workload.identity"
           }
           StringLike = {
-            "app.terraform.io:sub" = "organization:${var.tfc_organization}:project:${var.tfc_project}:workspace:*:run_phase:apply"
+            "app.terraform.io:sub" = "organization:${var.tfc_organization}:project:${var.tfc_project}:workspace:${var.tfc_workspace}:run_phase:apply"
           }
         }
       }

@@ -23,6 +23,11 @@ variable "tfc_project" {
   type        = string
 }
 
+variable "tfc_workspace" {
+  description = "Terraform Cloud workspace name"
+  type        = string
+}
+
 variable "plan_policy_arns" {
   description = "AWS managed policy ARN list for plan role"
   type        = list(string)
