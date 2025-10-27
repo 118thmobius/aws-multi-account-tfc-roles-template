@@ -32,4 +32,7 @@ module "tfc_baseline" {
     for filename in fileset("${path.module}/policies/apply", "*.json") :
     trimsuffix(filename, ".json") => file("${path.module}/policies/apply/${filename}")
   }
+
+  # Trusted role switching (dev environment only)
+  trusted_role_arn = var.trusted_role_arn
 }

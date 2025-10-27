@@ -19,4 +19,6 @@ module "tfc_roles" {
   plan_custom_policies  = var.plan_custom_policies
   apply_policy_arns     = var.apply_policy_arns
   apply_custom_policies = var.apply_custom_policies
+
+  trusted_role_arn = var.trusted_role_arn
 }

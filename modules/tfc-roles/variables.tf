@@ -51,3 +51,14 @@ variable "apply_custom_policies" {
   type        = map(string)
   default     = {}
 }
+
+variable "trusted_role_arn" {
+  description = "Trusted role ARN for role switching (dev environment only)"
+  type        = string
+  default     = ""
+
+  validation {
+    condition     = var.trusted_role_arn == "" || can(regex("^arn:aws:iam::[0-9]{12}:role/.+$", var.trusted_role_arn))
+    error_message = "The trusted_role_arn must be a valid AWS IAM role ARN (e.g., arn:aws:iam::123456789012:role/MyRole) or empty string."
+  }
+}

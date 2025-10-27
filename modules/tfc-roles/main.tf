@@ -3,7 +3,7 @@ resource "aws_iam_role" "tfc_plan_role" {
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
-    Statement = [
+    Statement = concat([
       {
         Effect = "Allow"
         Principal = {
@@ -19,7 +19,13 @@ resource "aws_iam_role" "tfc_plan_role" {
           }
         }
       }
-    ]
+    ], var.trusted_role_arn != "" && var.environment == "dev" ? [{
+      Effect = "Allow"
+      Principal = {
+        AWS = var.trusted_role_arn
+      }
+      Action = "sts:AssumeRole"
+    }] : [])
   })
 
   tags = {
@@ -34,7 +40,7 @@ resource "aws_iam_role" "tfc_apply_role" {
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
-    Statement = [
+    Statement = concat([
       {
         Effect = "Allow"
         Principal = {
@@ -50,7 +56,13 @@ resource "aws_iam_role" "tfc_apply_role" {
           }
         }
       }
-    ]
+    ], var.trusted_role_arn != "" && var.environment == "dev" ? [{
+      Effect = "Allow"
+      Principal = {
+        AWS = var.trusted_role_arn
+      }
+      Action = "sts:AssumeRole"
+    }] : [])
   })
 
   tags = {
